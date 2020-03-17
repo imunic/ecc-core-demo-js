@@ -6,9 +6,12 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
     "express": "4.17.1",
+    "express-async-errors": "^3.1.1",
+    "express-joi-validation": "^4.0.3",
     "lightship": "6.1.0",
     "morgan": "1.9.1",
     "why-is-node-running": "2.1.2",

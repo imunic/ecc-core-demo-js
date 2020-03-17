@@ -2,18 +2,22 @@ const express = require("express");
 const morgan = require("morgan");
 
 const config = require("./config");
-const { lightship, registerShutdownHandler } = require("./plumbing/lightship");
+const {lightship, registerShutdownHandler} = require("./plumbing/lightship");
 const logger = require("./plumbing/logger");
 
 // express
 const app = express();
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(morgan("combined", { stream: logger.stream }));
+app.use(express.urlencoded({extended: true}));
+app.use(morgan("combined", {stream: logger.stream}));
 
 // routes
-app.use("/", require("./routes/index"));
+app.use(`${config.baseUrl}/hello`, require("./route/hello"));
+app.use(`${config.baseUrl}/countries`, require("./route/country"));
+
+// error handler
+app.use(require("./plumbing/express-error"));
 
 registerShutdownHandler(app);
 

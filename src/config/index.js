@@ -5,4 +5,5 @@ dotenvExpand(dotenv.config());
 
 module.exports = {
   port: process.env.PORT || 8080,
+  baseUrl: "/api",
 };
